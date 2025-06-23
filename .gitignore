@@ -3,7 +3,6 @@
 **/dist
 **/coverage
 **/logs
-**/uploads
 
 # Environment files
 **/.env
