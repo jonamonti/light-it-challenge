@@ -1,0 +1,32 @@
+# Node.js
+**/node_modules
+**/dist
+**/coverage
+**/logs
+**/uploads
+
+# Environment files
+**/.env
+
+# Prisma
+**/prisma/dev.db
+**/prisma/dev.db-journal
+
+# Docker
+**/.docker
+
+# Vite
+**/.vite
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode
+
+# Logs
+*.log
+
+# Build cache
+**/build
+**/.turbo
