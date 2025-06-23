@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: light-it-challenge
+      POSTGRES_DB: patients
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: ./api
+    env_file:
+      - ./api/.env
+    command: sh -c "npx prisma migrate deploy && npm run start"
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+    ports:
+      - "1985:1985"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:light-it-challenge@db:5432/patients
+      SMTP_HOST: sandbox.smtp.mailtrap.io
+      SMTP_PORT: 587
+      SMTP_USER: fb46c98e528a2b
+      SMTP_PASS: 25bf92b66fda27
+      PORT: 1985
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
