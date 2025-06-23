@@ -49,6 +49,12 @@ SMTP_PASS=your-pass
 
 > ✅ Use [Mailtrap](https://mailtrap.io/) credentials for email testing.
 
+Inside the `frontend/` folder, make sure a `.env` file exists with the following content:
+
+```env
+VITE_API_URL=http://localhost:1985
+```
+
 ---
 
 ## 🐳 Run the App
