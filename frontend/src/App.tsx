@@ -52,10 +52,17 @@ const App = () => {
     setIsModalVisible(!isModalVisible)
   }
 
+  const handleSuccess = () => {
+    setIsLoading(true); // show loader
+    setTimeout(() => {
+      setIsModalVisible(false); // close modal, triggering useEffect to refetch patients
+    }, 500); // small delay to ensure modal closes before refetching
+  }
+
   return (
     <AppContainer>
       <MainModal isOpen={isModalVisible} onClose={handleModal}>
-        <RegistrationForm onClose={handleModal} />
+        <RegistrationForm onClose={handleModal} onSuccess={handleSuccess} />
       </MainModal>
       <Row>
         <h1>Patient Registration</h1>

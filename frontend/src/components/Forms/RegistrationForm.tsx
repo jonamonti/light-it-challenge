@@ -13,9 +13,10 @@ import { AxiosError } from 'axios';
 
 type Props = {
   onClose: () => void
+  onSuccess: () => void
 }
 
-const RegistrationForm: FC<Props> = ({ onClose }) => {
+const RegistrationForm: FC<Props> = ({ onSuccess }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false)
   const [showErrorModal, setShowErrorModal] = useState<boolean>(false)
@@ -61,7 +62,7 @@ const RegistrationForm: FC<Props> = ({ onClose }) => {
         setShowSuccessModal(true)
         setTimeout(() => {
           setShowSuccessModal(false)
-          onClose()
+          onSuccess()
         }, 5000)
       }
     } catch (error) {
