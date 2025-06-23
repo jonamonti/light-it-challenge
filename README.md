@@ -27,11 +27,9 @@ Before you begin, ensure you have:
 ## 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/light-it.git
+git clone https://github.com/jonamonti/light-it-challenge.git
 cd light-it
 ```
-
-> Replace the URL with the actual repo link.
 
 ---
 
